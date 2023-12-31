@@ -1,0 +1,63 @@
+#iam{
+    font-family: 'Brush Script MT';
+    
+}
+#Full-stack{
+    font-family:  Georgia, serif;
+    font-size: 2rem; ;
+}
+.name{
+    font-family:Tahoma, sans-serif;
+    font-size: 1.5rem;
+
+}
+
+#quotes{
+    font-size: 10px;
+    padding-top: 6px;
+
+}
+#Carol{
+    font-size: 9px;
+}
+.textabout{
+    font-size:14px;
+    font-family:"fantasy";
+    text-align:justify-all;
+
+}
+.who{
+    font-family: 'Brush Script MT, cursive';
+    /* padding-left: 30px; */
+    text-align: center;
+    
+}
+
+body{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  
+}
+.jumbotron{
+    text-align: center;
+}
+.about{
+    padding-top: 10px;
+   
+}
+.c-img{
+    height: 343px;
+    padding-bottom:0px;
+}
+.c-body{
+   margin-bottom: 1px;
+}
+.Copyrights{
+   padding-left: 45px;
+   
+
+}
+
