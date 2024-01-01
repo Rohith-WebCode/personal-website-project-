@@ -60,4 +60,10 @@ body{
    
 
 }
+.teaxt-hello {
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 24px;
+    font-family:'Courier New', Courier, monospace
+}
 
