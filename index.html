@@ -8,7 +8,7 @@
         <link rel="icon" href="Untitled-1.jpg">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
        <link rel="stylesheet" href="style.css">
-        
+        <script src="jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="bg-primary " style="position: fixed ;width: 100%; z-index: 1;">
@@ -198,42 +198,42 @@
         </div>
       </div>
     </section>
-    <section class="bg-light">
+       <section class="bg-light">
       <div class="container">
         <h1 class="text-center" id="contact">Contact Me</h1>
         <div class="row">
-          <form class="row g-3">
+          <form id="submit-form" action="" class="row g-3" >
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Name</label>
-              <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+              <input type="text" class="form-control" id="inputEmail4" name="Name" placeholder="Name">
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label">Place</label>
-              <input type="text" class="form-control" id="inputPassword4" placeholder="Place">
+              <input type="text" class="form-control" id="inputPassword4" name="Place" placeholder="Place">
             </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail4"  name="Email" placeholder="Email">
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label">Mobile</label>
-              <input type="tel" class="form-control" id="inputPassword4" placeholder="Mobile">
+              <input type="tel" class="form-control" id="inputPassword4" name="Mobile" placeholder="Mobile">
             </div>
             <div class="col-12">
               <label for="inputAddress" class="form-label">Message</label>
-              <textarea class="form-control" cols="30" rows="10" placeholder="type your Message her..."></textarea>
+              <textarea class="form-control" cols="30" rows="10"  name="Message" placeholder="type your Message her..."></textarea>
             </div>
             
            
             <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+              <input type="submit" value="Submit" class="btn btn-primary" style="width: 100%;">
             </div>
           </form>
         </div>
 
       </div>
 
-    </section>
+       </section>
    
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" style="background-color:aqua;">
        
@@ -249,10 +249,38 @@
         </ul>
       
       </footer>
-   
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxTov3MQANPovOkQxVg1hkfJ_aJMmlyyt14KfVVCMF8qvOLgGPZAHLHd7omCschUAZ6/exec",
+                data:$("#submit-form").serialize(),
+                method:"POST",
+                success:function (response){
+                    alert("Form submitted successfully")
+                     window.location.reload()
+                    // window.location.href="https://google.com"
+                },
+                error:function (err){
+                  console.log(err);
+                    let errorMessage = "Something went wrong. Please try again later.";
+                    if (err.status === 0) {
+                        errorMessage = "Network error. Please check your internet connection.";
+                    } else if (err.status === 404) {
+                        errorMessage = "Requested URL not found.";
+                    } else if (err.status === 500) {
+                        errorMessage = "Internal Server Error.";
+                    } else if (err.responseJSON && err.responseJSON.message) {
+                        errorMessage = err.responseJSON.message;
+                    }
+                    alert(errorMessage); // Display a more informative error message
+                }
+            })
+        })
+      </script>
     
     
-    <script src="jquery-3.7.1.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
